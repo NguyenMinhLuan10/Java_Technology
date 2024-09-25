@@ -1,5 +1,3 @@
-package vn.edu.tdtu;
-
 import vn.edu.tdtu.ArrayOutput;
 import vn.edu.tdtu.ArrayHandler;
 
@@ -17,6 +15,6 @@ public class Program {
         ArrayHandler.sort(c);
         ArrayOutput.print(c);
 
-        ArrayOutput.write(c, "D:\\Year_III\\HK1\\Java\\Lab\\Lab 1\\ex2\\vn\\edu\\tdtu\\output.txt");
+        ArrayOutput.write(c, ".\\output.txt");
     }
 }
