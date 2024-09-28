@@ -120,7 +120,7 @@ public class Main {
     public void selectAllProduct() {
         Connection connection = getConnection(url, user, password);
         ProductDAO dao = new ProductDAO(connection);
-        List<Product> products = dao.selectAll();
+        List<Product> products = dao.readAll();
         printProduct(products);
     }
 
@@ -137,7 +137,7 @@ public class Main {
         sc.nextLine();
         Connection connection = getConnection(url, user, password);
         ProductDAO dao = new ProductDAO(connection);
-        Product product = dao.selectById(x);
+        Product product = dao.read(x);
         if (product != null) {
             product.print();
         } else {

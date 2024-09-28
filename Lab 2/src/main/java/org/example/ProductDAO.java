@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDAO {
+public class ProductDAO implements Repository<Product, Integer>{
 
     private final String SQL_Select = "select * from sanpham";
     private final String SQL_SelectById = "select * from sanpham where id = ?";
@@ -23,6 +23,7 @@ public class ProductDAO {
         this.connection = conn;
     }
 
+    @Override
     public Integer add(Product obj) {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_Insert);
@@ -36,7 +37,8 @@ public class ProductDAO {
         }
     }
 
-    public List<Product> selectAll() {
+    @Override
+    public List<Product> readAll() {
         List<Product> products = new ArrayList<>();
         try {
             PreparedStatement selectStatement = connection.prepareStatement(SQL_Select);
@@ -57,7 +59,8 @@ public class ProductDAO {
         }
     }
 
-    public Product selectById(int id) {
+    @Override
+    public Product read(Integer id) {
         Product product = null;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_SelectById);
@@ -78,6 +81,7 @@ public class ProductDAO {
         }
     }
 
+    @Override
     public boolean update(Product product) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_Update);
@@ -92,7 +96,8 @@ public class ProductDAO {
         }
     }
 
-    public boolean delete(int id) {
+    @Override
+    public boolean delete(Integer id) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_Delete);
             preparedStatement.setInt(1, id);
