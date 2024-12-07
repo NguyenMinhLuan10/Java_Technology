@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/lab9
+    username: root
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update  # Tùy chọn: 'none', 'update', 'create', 'create-drop'
+    show-sql: true  # Hiển thị SQL trong console
+
